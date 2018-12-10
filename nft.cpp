@@ -134,11 +134,18 @@ void example::nft::mint(symbol sym, std::string json_data, name owner, uint64_t 
     token_table token_table(owner, sym.code().raw());
     token_table.emplace(owner, [&](auto& token) {
         //TODO: Create method to get next id
-        token.tk_id = 0;
-        token.json_data = json_data;
+        token.class_record_id = 0;
+        token.obj_record_id = 0;
+        token.cust_record_id = 0;
         token.owner = owner;
-        token.td_hash = td_hash;
     });
+}
+
+int hashCode()
+{
+    std::hash<std::string> string_hash;
+
+    return string_hash("Hash me");
 }
 
 EOSIO_DISPATCH(example::nft, (create)(remove)(issue)(burn)(transfer))

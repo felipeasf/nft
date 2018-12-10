@@ -4,6 +4,7 @@
 
 #include <eosiolib/eosio.hpp>
 #include <eosiolib/asset.hpp>
+//#include <boost/container_hash/hash.hpp>
 
 using namespace eosio;
 
@@ -69,7 +70,7 @@ namespace example {
                 uint64_t cust_record_id;
                 name owner;
 
-                uint64_t primary_key() const {return tk_id;}
+                uint64_t primary_key() const {return obj_record_id;}
             };
 
             typedef eosio::multi_index<"classtable"_n, class_parameter> class_table;
