@@ -20,7 +20,7 @@ namespace example {
 
             ACTION remove(symbol sym);
 
-            ACTION issue(name to, symbol sym, std::string td_json, std::vector<std::string> json_data);
+            ACTION issue(name to, symbol sym, std::string td_json, std::vector<std::string> json_data); 
 
             ACTION burn(name owner, symbol sym, std::vector<uint64_t> tk_ids);
 
@@ -29,45 +29,45 @@ namespace example {
             //class parameters
             TABLE class_parameter {
                 uint128_t hash;
+                uint64_t id;
                 uint64_t schema_id;
-                uint64_t record_id;
-                std::string class_data; //string is not acceptable
+                std::vector<uint8_t> class_data;
 
-                uint64_t primary_key() const {return record_id;}
+                uint64_t primary_key() const {return id;}
             };
             //object parameters
             TABLE obj_parameter {
                 uint128_t hash;
+                uint64_t id;
                 uint64_t schema_id;
-                uint64_t record_id;
-                std::string obj_data; //string is not acceptable
+                std::vector<uint8_t> obj_data;
 
-                uint64_t primary_key() const {return record_id;}
+                uint64_t primary_key() const {return id;}
             };
 
             //object parameters
             TABLE cust_parameter {
                 uint128_t hash;
+                uint64_t id;
                 uint64_t schema_id;
-                uint64_t record_id;
-                std::string cust_data; //string is not acceptable
+                std::vector<uint8_t> cust_data;
 
-                uint64_t primary_key() const {return record_id;}
+                uint64_t primary_key() const {return id;}
             };
 
             //token kind parameters
-            TABLE token_stat {
-                asset data;
-                name issuer;
-                uint128_t gd_hash; //generic data hash
+            TABLE schema {
+                uint64_t id;
+                string definition;
 
-                uint64_t primary_key() const {return data.symbol.code().raw();}
+                uint64_t primary_key() const {return id;}
             };
+
             //individual token parameters
             TABLE token {
-                uint64_t class_record_id;
-                uint64_t obj_record_id;
-                uint64_t cust_record_id;
+                uint64_t class_id;
+                uint64_t obj_id;
+                uint64_t custom_id;
                 name owner;
 
                 uint64_t primary_key() const {return obj_record_id;}
