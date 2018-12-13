@@ -96,6 +96,6 @@ namespace example {
             typedef eosio::multi_index<"tokentable"_n, token> token_table;
 
         private:
-            void mint(symbol sym, uint64_t spawn_id, uint64_t cust_id, name owner);
+            void mint(uint64_t spawn_id, uint64_t cust_id, name owner);
    };
 } //example namespace

@@ -55,7 +55,7 @@ void example::nft::issue(name to, symbol sym, uint64_t spawn_id, uint64_t cust_i
        ts.data.amount++;
     });
 
-    mint(sym, spawn_id, cust_id, to);
+    mint(spawn_id, cust_id, to);
 }
 
 void example::nft::burn(symbol sym, uint64_t tk_id) {
@@ -105,9 +105,8 @@ void example::nft::transfer(name from, name to, symbol sym, uint64_t tk_id, std:
     require_recipient(to);
 }
 
-void example::nft::mint(symbol sym, uint64_t spawn_id, uint64_t cust_id,
-    name owner) {
-    token_table token_table(_self, sym.code().raw());
+void example::nft::mint(uint64_t spawn_id, uint64_t cust_id, name owner) {
+    token_table token_table(_self, _self.value);
     token_table.emplace(_self, [&](auto& token) {
         token.id = token_table.available_primary_key();
         token.spawn_id = spawn_id;
