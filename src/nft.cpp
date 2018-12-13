@@ -129,4 +129,8 @@ void example::nft::createcstprm() {}
 
 void example::nft::removecstprm() {}
 
+void example::nft::createschema() {}
+
+void example::nft::removeschema() {}
+
 EOSIO_DISPATCH(example::nft, (create)(remove)(issue)(burn)(transfer))
