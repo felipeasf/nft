@@ -80,15 +80,17 @@ void example::nft::burn(symbol sym, uint64_t tk_id) {
 
 void example::nft::transfer(name from, name to, symbol sym, uint64_t tk_id, std::string memo) {
     eosio_assert(from != to, "cannot transfer to self");
-    require_auth(from);
 
     eosio_assert(is_account(to), "to account does not exist");
 
     eosio_assert(memo.size() <= 256, "memo has more than 256 bytes");
 
     token_data_table td_table(_self, _self.value);
-    auto token_stat = td_table.find(sym.code().raw());
-    eosio_assert(token_stat != td_table.end(), "token with symbol doesn't exist");
+    auto token_data = td_table.find(sym.code().raw());
+    eosio_assert(token_data != td_table.end(), "token with symbol doesn't exist");
+
+    // Make sure that transfer can only be called from issuer contract through inline action
+    require_auth(token_data->issuer);
 
     token_table token_table(_self, _self.value);
 
