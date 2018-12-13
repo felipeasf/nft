@@ -117,22 +117,24 @@ void example::nft::mint(uint64_t spawn_id, uint64_t cust_id, name owner) {
     });
 }
 
-void example::nft::createclsprm() {}
+void example::nft::createclsprm(uint64_t schema_id, uint128_t data_hash, std::vector<uint8_t> data) {}
 
-void example::nft::removeclsprm() {}
+void example::nft::removeclsprm(uint64_t id) {}
 
-void example::nft::updateclsprm() {}
+void example::nft::updateclsprm(uint64_t id, uint128_t data_hash, std::vector<uint8_t> data) {}
 
-void example::nft::createspwprm() {}
+void example::nft::createspwprm(uint64_t schema_id, uint128_t data_hash, std::vector<uint8_t> data) {}
 
-void example::nft::removespwprm() {}
+void example::nft::removespwprm(uint64_t id) {}
 
-void example::nft::createcstprm() {}
+void example::nft::createcstprm(uint64_t schema_id, uint128_t data_hash, std::vector<uint8_t> data) {}
 
-void example::nft::removecstprm() {}
+void example::nft::removecstprm(uint64_t id) {}
 
-void example::nft::createschema() {}
+void example::nft::createschema(std::string definition) {}
 
-void example::nft::removeschema() {}
+void example::nft::removeschema(uint64_t id) {}
 
-EOSIO_DISPATCH(example::nft, (create)(remove)(issue)(burn)(transfer))
+EOSIO_DISPATCH(example::nft, (create)(remove)(issue)(burn)(transfer)(createclsprm)(removeclsprm)
+    (updateclsprm)(createspwprm)(removespwprm)(createcstprm)(removecstprm)(createschema)
+    (removeschema))
