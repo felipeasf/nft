@@ -17,23 +17,42 @@ namespace example {
 
             ACTION remove(symbol sym);
 
+            /*
+             * At issue time, developer could update/change object parameter,
+             * this  will affect only all future tokens, doesn’t affect 
+             * previously minted tokens.
+             *
+             */
             ACTION issue(name to, symbol sym, uint64_t spawn_id, uint64_t cust_id); 
 
             ACTION burn(symbol sym, uint64_t tk_id);
 
             ACTION transfer(name from, name to, symbol sym, uint64_t tk_id, std::string memo);
+
             //create class parameters
             ACTION createclsprm();
+
             //remove class parameters
             ACTION removeclsprm();
-            //updata class parameters
+
+            /*updata class parameters
+             *
+             * A modification on the class parameter will reflect
+             * on all instances of the token class in the ecosystem,
+             * including existing ones and ones to be minted.
+             *
+             */
             ACTION updateclsprm();
+
             //create spawn parameters
             ACTION createspwprm();
+
             //remove spawn parameters
             ACTION removespwprm();
+
             //create custom parameters
             ACTION createcstprm();
+
             //remove custom parameters
             ACTION removecstprm();
 
