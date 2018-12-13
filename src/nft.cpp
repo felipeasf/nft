@@ -1,7 +1,7 @@
 /**
 *  @file nft.cpp
 */
-#include "nft.hpp"
+#include "example/nft.hpp"
 
 void example::nft::create(name issuer, symbol sym, std::string gd_json) {
     require_auth(_self);
