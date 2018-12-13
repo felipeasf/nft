@@ -116,4 +116,18 @@ void example::nft::mint(symbol sym, uint64_t spawn_id, uint64_t cust_id,
     });
 }
 
+void example::nft::createclsprm() {}
+
+void example::nft::removeclsprm() {}
+
+void example::nft::updateclsprm() {}
+
+void example::nft::createspwprm() {}
+
+void example::nft::removespwprm() {}
+
+void example::nft::createcstprm() {}
+
+void example::nft::removecstprm() {}
+
 EOSIO_DISPATCH(example::nft, (create)(remove)(issue)(burn)(transfer))

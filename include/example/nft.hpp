@@ -23,6 +23,20 @@ namespace example {
 
             ACTION transfer(name from, name to, symbol sym, uint64_t tk_id, std::string memo);
 
+            ACTION createclsprm();
+
+            ACTION removeclsprm();
+
+            ACTION updateclsprm();
+
+            ACTION createspwprm();
+
+            ACTION removespwprm();
+
+            ACTION createcstprm();
+
+            ACTION removecstprm();
+
             TABLE class_parameter {
                 uint64_t id;
                 uint64_t schema_id;
