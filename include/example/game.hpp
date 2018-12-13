@@ -28,5 +28,16 @@ namespace example {
              * @param memo - Transfer memo.
              */
             ACTION transfer(name from, name to, symbol sym, uint64_t tk_id, std::string memo);
+
+            TABLE token {
+                uint64_t id;
+                uint64_t spawn_id;
+                uint64_t custom_id;
+                name owner;
+
+                uint64_t primary_key() const {return id;}
+            };
+
+            typedef eosio::multi_index<name("tokentable"), token> token_table;
    };
 } //example namespace
