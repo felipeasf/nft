@@ -135,4 +135,4 @@ void example::nft::createschema() {}
 
 void example::nft::removeschema() {}
 
-EOSIO_DISPATCH(example::nft, (create)(remove)(issue)(burn)(transfer)(mint)) 
+EOSIO_DISPATCH(example::nft, (create)(remove)(issue)(burn)(transfer))
