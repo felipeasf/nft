@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(bndes_poc VERSION 1.0.0)
+project(nft VERSION 1.0.0)
 
 find_package(eosio.cdt)
 
