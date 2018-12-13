@@ -64,7 +64,7 @@ void example::nft::burn(symbol sym, uint64_t tk_id) {
     auto token_stat = td_table.find(sym.code().raw());
     eosio_assert(token_stat != td_table.end(), "token with symbol does not exist");
 
-    token_table token_table(_self, sym.code().raw());
+    token_table token_table(_self, _self.value);
 
     auto token = token_table.find(tk_id);
     eosio_assert(token != token_table.end(), "token with id does not exist");
@@ -90,7 +90,7 @@ void example::nft::transfer(name from, name to, symbol sym, uint64_t tk_id, std:
     auto token_stat = td_table.find(sym.code().raw());
     eosio_assert(token_stat != td_table.end(), "token with symbol doesn't exist");
 
-    token_table token_table(_self, sym.code().raw());
+    token_table token_table(_self, _self.value);
 
     auto token = token_table.find(tk_id);
     eosio_assert(token != token_table.end(), "token with id does not exist");
