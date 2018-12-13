@@ -4,11 +4,8 @@
 
 #include <eosiolib/eosio.hpp>
 #include <eosiolib/asset.hpp>
-//#include <boost/container_hash/hash.hpp>
 
 using namespace eosio;
-
-//TODO: Issuing, burning and tranfering multiple tokens can be a problem. What happens if one fail?
 
 namespace example {
 
@@ -16,70 +13,77 @@ namespace example {
         public:
             nft(name recvr, name code, datastream<const char*> ds) : contract(recvr, code, ds) {}
 
-            ACTION create(name issuer, symbol sym, std::string gd_json);
+            ACTION create(name issuer, symbol sym);
 
             ACTION remove(symbol sym);
 
-            ACTION issue(name to, symbol sym, std::string td_json, std::vector<std::string> json_data); 
+            ACTION issue(name to, symbol sym, uint64_t class_id, uint64_t spawn_id,
+                uint64_t cust_id); 
 
-            ACTION burn(name owner, symbol sym, std::vector<uint64_t> tk_ids);
+            ACTION burn(symbol sym, uint64_t tk_id);
 
-            ACTION transfer(name from, name to, symbol sym, std::vector<uint64_t> tk_ids, std::string memo);
+            ACTION transfer(name from, name to, symbol sym, uint64_t tk_id, std::string memo);
 
-            //class parameters
             TABLE class_parameter {
-                uint128_t hash;
                 uint64_t id;
                 uint64_t schema_id;
-                std::vector<uint8_t> class_data;
-
-                uint64_t primary_key() const {return id;}
-            };
-            //object parameters
-            TABLE obj_parameter {
-                uint128_t hash;
-                uint64_t id;
-                uint64_t schema_id;
-                std::vector<uint8_t> obj_data;
+                uint128_t data_hash;
+                std::vector<uint8_t> data;
 
                 uint64_t primary_key() const {return id;}
             };
 
-            //object parameters
+            TABLE spawn_parameter {
+                uint64_t id;
+                uint64_t schema_id;
+                uint128_t data_hash;
+                std::vector<uint8_t> data;
+
+                uint64_t primary_key() const {return id;}
+            };
+
             TABLE cust_parameter {
-                uint128_t hash;
                 uint64_t id;
                 uint64_t schema_id;
-                std::vector<uint8_t> cust_data;
+                uint128_t data_hash;
+                std::vector<uint8_t> data;
 
                 uint64_t primary_key() const {return id;}
             };
 
-            //token kind parameters
             TABLE schema {
                 uint64_t id;
-                string definition;
+                std::string definition;
 
                 uint64_t primary_key() const {return id;}
             };
 
-            //individual token parameters
             TABLE token {
+                uint64_t id;
                 uint64_t class_id;
-                uint64_t obj_id;
+                uint64_t spawn_id;
                 uint64_t custom_id;
                 name owner;
 
-                uint64_t primary_key() const {return obj_record_id;}
+                uint64_t primary_key() const {return id;}
             };
 
-            typedef eosio::multi_index<"classtable"_n, class_parameter> class_table;
-            typedef eosio::multi_index<"objtable"_n, obj_parameter> obj_table;
-            typedef eosio::multi_index<"custtable"_n, cust_parameter> cust_table;
-            typedef eosio::multi_index<"tstattable"_n, token_stat> tstat_table;
+            TABLE token_stat {
+                asset data;
+                name issuer;
+
+                uint64_t primary_key() const {return data.symbol.code().raw();}
+            };
+
+            typedef eosio::multi_index<"clsparamtable"_n, class_parameter> cls_param_table;
+            typedef eosio::multi_index<"spwparamtable"_n, spawn_parameter> spw_param_table;
+            typedef eosio::multi_index<"cstparamtable"_n, cust_parameter> cst_param_table;
+            typedef eosio::multi_index<"schematable"_n, schema> schema_table;
             typedef eosio::multi_index<"tokentable"_n, token> token_table;
+            typedef eosio::multi_index<"tstattable"_n, token_stat> token_stat_table;
 
         private:
-            void mint(symbol sym, std::string json_data, name owner, uint64_t td_hash);
+            void mint(symbol sym, uint64_t class_id, uint64_t spawn_id, uint64_t cust_id,
+                name owner);
    };
 } //example namespace
