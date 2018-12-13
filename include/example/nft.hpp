@@ -194,12 +194,12 @@ namespace example {
                 uint64_t primary_key() const {return id;}
             };
 
-            typedef eosio::multi_index<"clsparamtable"_n, class_parameter> cls_param_table;
-            typedef eosio::multi_index<"spwparamtable"_n, spawn_parameter> spw_param_table;
-            typedef eosio::multi_index<"cstparamtable"_n, cust_parameter> cst_param_table;
-            typedef eosio::multi_index<"schematable"_n, schema> schema_table;
-            typedef eosio::multi_index<"tdatatable"_n, token_data> token_data_table;
-            typedef eosio::multi_index<"tokentable"_n, token> token_table;
+            typedef eosio::multi_index<name("clsparamtable"), class_parameter> cls_param_table;
+            typedef eosio::multi_index<name("spwparamtable"), spawn_parameter> spw_param_table;
+            typedef eosio::multi_index<name("cstparamtable"), cust_parameter> cst_param_table;
+            typedef eosio::multi_index<name("schematable"), schema> schema_table;
+            typedef eosio::multi_index<name("tdatatable"), token_data> token_data_table;
+            typedef eosio::multi_index<name("tokentable"), token> token_table;
 
         private:
             void mint(uint64_t spawn_id, uint64_t cust_id, name owner);
