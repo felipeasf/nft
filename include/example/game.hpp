@@ -24,7 +24,7 @@ namespace example {
              * @param from - Account from where token will be transfered.
              * @param to - Account where token will be transfered to.
              * @param sym - Token symbol.
-             * @param tk_id - Token id.
+             * @param tk_id - ID of Token.
              * @param memo - Transfer memo.
              */
             ACTION transfer(name from, name to, symbol sym, uint64_t tk_id, std::string memo);

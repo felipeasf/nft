@@ -20,130 +20,114 @@ namespace example {
             nft(name recvr, name code, datastream<const char*> ds) : contract(recvr, code, ds) {}
 
             /**
-             * @brief At issue time, developer could update/change object parameter,
-             * this  will affect only all future tokens, doesn’t affect 
-             * previously minted tokens.
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @brief Create a new type of NFT.
+             * @param issuer - Account responsible for issueing new tokens.
+             * @param sym - NFT symbol.
+             * @param class_id - ID of Class Parameters registry.
              */
             ACTION create(name issuer, symbol sym, uint64_t class_id);
 
             /**
-             * @brief At issue time, developer could update/change object parameter,
-             * this  will affect only all future tokens, doesn’t affect 
-             * previously minted tokens.
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @brief Remove a type of NFT.
+             * @param sym - Symbol of NFT to be removed.
              */
             ACTION remove(symbol sym);
             
             /**
-             * @brief At issue time, developer could update/change object parameter,
-             * this  will affect only all future tokens, doesn’t affect 
-             * previously minted tokens.
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @brief Issue a new token.
+             * @param to - Account that will receive new token.
+             * @param sym - NFT symbol.
+             * @param spawn_id - ID of Spawn Parameters registry.
+             * @param cust_id - ID of Custom Parameters registry.
              */
             ACTION issue(name to, symbol sym, uint64_t spawn_id, uint64_t cust_id); 
 
             /**
-             * @brief At issue time, developer could update/change object parameter,
-             * this  will affect only all future tokens, doesn’t affect 
-             * previously minted tokens.
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @brief Burn an existing token.
+             * @param sym - NFT symbol.
+             * @param tk_id - ID of token.
              */
             ACTION burn(symbol sym, uint64_t tk_id);
 
             /**
-             * @brief At issue time, developer could update/change object parameter,
-             * this  will affect only all future tokens, doesn’t affect 
-             * previously minted tokens.
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @brief Transfer token between accounts.
+             * @param from - Account from where token will be transfered.
+             * @param to - Account where token will be transfered to.
+             * @param sym - Token symbol.
+             * @param tk_id - ID of token.
+             * @param memo - Transfer memo.
              */
             ACTION transfer(name from, name to, symbol sym, uint64_t tk_id, std::string memo);
 
             /** 
-             * @brief create class parameters
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @brief Create class parameters.
+             * @param schema_id - ID of schema registry used.
+             * @param data_hash - Hash of serialized parameters data.
+             * @param data - Serialized parameters data.
              */
-            ACTION createclsprm();
+            ACTION createclsprm(uint64_t schema_id, uint128_t data_hash, std::vector<uint8_t> data);
 
             /** 
-             * @brief remove class parameters
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @brief Remove class parameters.
+             * @param id - ID of class parameters registry.
              */
-            ACTION removeclsprm();
+            ACTION removeclsprm(uint64_t id);
 
             /** 
-             * @brief update class parameters - A modification on the class parameter will reflect
-             * on all instances of the token class in the ecosystem,
-             * including existing ones and ones to be minted.
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @brief Update class parameters.
+             * @param id - ID of class parameters registry.
+             * @param data_hash - Hash of new serialized parameters data.
+             * @param data - New serialized parameters data.
              */
-            ACTION updateclsprm();
+            ACTION updateclsprm(uint64_t id, uint128_t data_hash, std::vector<uint8_t> data);
 
             /** 
-             * @brief create spawn parameters
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @brief Create spawn parameters.
+             * @param schema_id - ID of schema registry used.
+             * @param data_hash - Hash of serialized parameters data.
+             * @param data - Serialized parameters data.
              */
-            ACTION createspwprm();
+            ACTION createspwprm(uint64_t schema_id, uint128_t data_hash, std::vector<uint8_t> data);
 
             /** 
-             * @brief remove spawn parameters
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @brief Remove spawn parameters.
+             * @param id - ID of spawn parameters registry.
              */
-            ACTION removespwprm();
+            ACTION removespwprm(uint64_t id);
 
             /** 
-             * @brief create custom parameters
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @brief Create custom parameters.
+             * @param schema_id - ID of schema registry used.
+             * @param data_hash - Hash of serialized parameters data.
+             * @param data - Serialized parameters data.
              */
-            ACTION createcstprm();
+            ACTION createcstprm(uint64_t schema_id, uint128_t data_hash, std::vector<uint8_t> data);
 
             /** 
-             * @brief remove custom parameters
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @brief Remove custom parameters.
+             * @param id - ID of custom parameters registry.
              */
-            ACTION removecstprm();
+            ACTION removecstprm(uint64_t id);
 
             /** 
-             * @brief create data schema
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @brief Create schema.
+             * @param definition - JSON of schema definition.
              */
-            ACTION createschema();
+            ACTION createschema(std::string definition);
 
             /** 
-             * @brief remove data schema
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @brief Remove schema.
+             * @param id - ID of schema registry.
              */
-            ACTION removeschema();
+            ACTION removeschema(uint64_t id);
 
         private:
+            /** 
+             * @brief Mint a new token.
+             * @param spawn_id - ID of spawn parameters registry.
+             * @param cust_id - ID of custom parameters registry.
+             * @param owner - Owner account of minted token.
+             */
             void mint(uint64_t spawn_id, uint64_t cust_id, name owner);
    };
 
