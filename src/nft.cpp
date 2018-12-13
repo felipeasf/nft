@@ -105,6 +105,7 @@ void example::nft::transfer(name from, name to, symbol sym, uint64_t tk_id, std:
     require_recipient(to);
 }
 
+//ToDo: update with all parameters
 void example::nft::mint(symbol sym, uint64_t spawn_id, uint64_t cust_id,
     name owner) {
     token_table token_table(_self, sym.code().raw());
@@ -129,5 +130,9 @@ void example::nft::removespwprm() {}
 void example::nft::createcstprm() {}
 
 void example::nft::removecstprm() {}
+
+void example::nft::createschema() {}
+
+void example::nft::removeschema() {}
 
 EOSIO_DISPATCH(example::nft, (create)(remove)(issue)(burn)(transfer))

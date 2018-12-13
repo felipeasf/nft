@@ -22,20 +22,24 @@ namespace example {
             ACTION burn(symbol sym, uint64_t tk_id);
 
             ACTION transfer(name from, name to, symbol sym, uint64_t tk_id, std::string memo);
-
+            //create class parameters
             ACTION createclsprm();
-
+            //remove class parameters
             ACTION removeclsprm();
-
+            //updata class parameters
             ACTION updateclsprm();
-
+            //create spawn parameters
             ACTION createspwprm();
-
+            //remove spawn parameters
             ACTION removespwprm();
-
+            //create custom parameters
             ACTION createcstprm();
-
+            //remove custom parameters
             ACTION removecstprm();
+
+            ACTION createschema();
+
+            ACTION removeschema();
 
             TABLE class_parameter {
                 uint64_t id;
