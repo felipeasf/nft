@@ -143,65 +143,66 @@ namespace example {
              */
             ACTION removeschema();
 
-            TABLE class_parameter {
-                uint64_t id;
-                uint64_t schema_id;
-                uint128_t data_hash;
-                std::vector<uint8_t> data;
-
-                uint64_t primary_key() const {return id;}
-            };
-
-            TABLE spawn_parameter {
-                uint64_t id;
-                uint64_t schema_id;
-                uint128_t data_hash;
-                std::vector<uint8_t> data;
-
-                uint64_t primary_key() const {return id;}
-            };
-
-            TABLE cust_parameter {
-                uint64_t id;
-                uint64_t schema_id;
-                uint128_t data_hash;
-                std::vector<uint8_t> data;
-
-                uint64_t primary_key() const {return id;}
-            };
-
-            TABLE schema {
-                uint64_t id;
-                std::string definition;
-
-                uint64_t primary_key() const {return id;}
-            };
-
-            TABLE token_data {
-                asset data;
-                name issuer;
-                uint64_t class_id;
-
-                uint64_t primary_key() const {return data.symbol.code().raw();}
-            };
-
-            TABLE token {
-                uint64_t id;
-                uint64_t spawn_id;
-                uint64_t custom_id;
-                name owner;
-
-                uint64_t primary_key() const {return id;}
-            };
-
-            typedef eosio::multi_index<name("clsparamtable"), class_parameter> cls_param_table;
-            typedef eosio::multi_index<name("spwparamtable"), spawn_parameter> spw_param_table;
-            typedef eosio::multi_index<name("cstparamtable"), cust_parameter> cst_param_table;
-            typedef eosio::multi_index<name("schematable"), schema> schema_table;
-            typedef eosio::multi_index<name("tdatatable"), token_data> token_data_table;
-            typedef eosio::multi_index<name("tokentable"), token> token_table;
-
         private:
             void mint(uint64_t spawn_id, uint64_t cust_id, name owner);
    };
+
+   TABLE class_parameter {
+       uint64_t id;
+       uint64_t schema_id;
+       uint128_t data_hash;
+       std::vector<uint8_t> data;
+
+       uint64_t primary_key() const {return id;}
+   };
+
+   TABLE spawn_parameter {
+       uint64_t id;
+       uint64_t schema_id;
+       uint128_t data_hash;
+       std::vector<uint8_t> data;
+
+       uint64_t primary_key() const {return id;}
+   };
+
+   TABLE cust_parameter {
+       uint64_t id;
+       uint64_t schema_id;
+       uint128_t data_hash;
+       std::vector<uint8_t> data;
+
+       uint64_t primary_key() const {return id;}
+   };
+
+   TABLE schema {
+       uint64_t id;
+       std::string definition;
+
+       uint64_t primary_key() const {return id;}
+   };
+
+   TABLE token_data {
+       asset data;
+       name issuer;
+       uint64_t class_id;
+
+       uint64_t primary_key() const {return data.symbol.code().raw();}
+   };
+
+   TABLE token {
+       uint64_t id;
+       uint64_t spawn_id;
+       uint64_t custom_id;
+       name owner;
+
+       uint64_t primary_key() const {return id;}
+   };
+
+   typedef eosio::multi_index<name("clsparamtable"), class_parameter> cls_param_table;
+   typedef eosio::multi_index<name("spwparamtable"), spawn_parameter> spw_param_table;
+   typedef eosio::multi_index<name("cstparamtable"), cust_parameter> cst_param_table;
+   typedef eosio::multi_index<name("schematable"), schema> schema_table;
+   typedef eosio::multi_index<name("tdatatable"), token_data> token_data_table;
+   typedef eosio::multi_index<name("tokentable"), token> token_table;
+
 } //example namespace
