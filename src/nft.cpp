@@ -4,7 +4,7 @@
 
 #include "example/nft.hpp"
 
-void example::nft::create(name issuer, symbol sym) {
+void example::nft::create(name issuer, symbol sym, uint64_t class_id) {
     require_auth(_self);
 
     eosio_assert(is_account(issuer), "issuer account does not exist");
@@ -12,14 +12,15 @@ void example::nft::create(name issuer, symbol sym) {
     eosio_assert(sym.is_valid(), "invalid symbol");
     eosio_assert(sym.precision() == 0, "symbol precision must be 0");
 
-    token_stat_table ts_table(_self, _self.value);
-    auto token_stat = ts_table.find(sym.code().raw());
-    eosio_assert(token_stat == ts_table.end(), "token with symbol already exists");
+    token_data_table td_table(_self, _self.value);
+    auto token_stat = td_table.find(sym.code().raw());
+    eosio_assert(token_stat == td_table.end(), "token with symbol already exists");
 
-    ts_table.emplace(_self, [&](auto& ts) {
+    td_table.emplace(_self, [&](auto& ts) {
        ts.data.symbol = sym;
        ts.data.amount = 0;
        ts.issuer = issuer;
+       ts.class_id = class_id;
     });
 }
 
@@ -28,40 +29,40 @@ void example::nft::remove(symbol sym) {
 
     eosio_assert(sym.is_valid(), "invalid symbol");
 
-    token_stat_table ts_table(_self, _self.value);
-    auto token_stat = ts_table.find(sym.code().raw());
-    eosio_assert(token_stat != ts_table.end(), "token with symbol doesn't exist");
+    token_data_table td_table(_self, _self.value);
+    auto token_stat = td_table.find(sym.code().raw());
+    eosio_assert(token_stat != td_table.end(), "token with symbol doesn't exist");
 
     eosio_assert(token_stat->data.amount == 0, "burn all tokens before removing");
 
-    ts_table.erase(token_stat);
+    td_table.erase(token_stat);
 }
 
-void example::nft::issue(name to, symbol sym, uint64_t class_id, uint64_t spawn_id, uint64_t cust_id) {
+void example::nft::issue(name to, symbol sym, uint64_t spawn_id, uint64_t cust_id) {
     eosio_assert(is_account(to), "to account does not exist");
 
     eosio_assert(sym.is_valid(), "invalid symbol name");
 
-    token_stat_table ts_table(_self, _self.value);
-    auto token_stat = ts_table.find(sym.code().raw());
-    eosio_assert(token_stat != ts_table.end(), "token with symbol does not exist");
+    token_data_table td_table(_self, _self.value);
+    auto token_stat = td_table.find(sym.code().raw());
+    eosio_assert(token_stat != td_table.end(), "token with symbol does not exist");
 
     require_auth(token_stat->issuer);
 
     eosio_assert(token_stat->data.amount < token_stat->data.max_amount, "invalid quantity");
 
-    ts_table.modify(token_stat, _self, [&](auto& ts) {
+    td_table.modify(token_stat, _self, [&](auto& ts) {
        ts.data.amount++;
     });
 
-    mint(sym, class_id, spawn_id, cust_id, to);
+    mint(sym, spawn_id, cust_id, to);
 }
 
 void example::nft::burn(symbol sym, uint64_t tk_id) {
-    token_stat_table ts_table(_self, _self.value);
+    token_data_table td_table(_self, _self.value);
 
-    auto token_stat = ts_table.find(sym.code().raw());
-    eosio_assert(token_stat != ts_table.end(), "token with symbol does not exist");
+    auto token_stat = td_table.find(sym.code().raw());
+    eosio_assert(token_stat != td_table.end(), "token with symbol does not exist");
 
     token_table token_table(_self, sym.code().raw());
 
@@ -70,7 +71,7 @@ void example::nft::burn(symbol sym, uint64_t tk_id) {
 
     require_auth(token->owner);
 
-    ts_table.modify(token_stat, _self, [&](auto& ts) {
+    td_table.modify(token_stat, _self, [&](auto& ts) {
         ts.data.amount--;
     });
 
@@ -85,9 +86,9 @@ void example::nft::transfer(name from, name to, symbol sym, uint64_t tk_id, std:
 
     eosio_assert(memo.size() <= 256, "memo has more than 256 bytes");
 
-    token_stat_table ts_table(_self, _self.value);
-    auto token_stat = ts_table.find(sym.code().raw());
-    eosio_assert(token_stat != ts_table.end(), "token with symbol doesn't exist");
+    token_data_table td_table(_self, _self.value);
+    auto token_stat = td_table.find(sym.code().raw());
+    eosio_assert(token_stat != td_table.end(), "token with symbol doesn't exist");
 
     token_table token_table(_self, sym.code().raw());
 
@@ -104,12 +105,11 @@ void example::nft::transfer(name from, name to, symbol sym, uint64_t tk_id, std:
     require_recipient(to);
 }
 
-void example::nft::mint(symbol sym, uint64_t class_id, uint64_t spawn_id, uint64_t cust_id,
+void example::nft::mint(symbol sym, uint64_t spawn_id, uint64_t cust_id,
     name owner) {
     token_table token_table(_self, sym.code().raw());
     token_table.emplace(_self, [&](auto& token) {
         token.id = token_table.available_primary_key();
-        token.class_id = class_id;
         token.spawn_id = spawn_id;
         token.custom_id = cust_id;
         token.owner = owner;
