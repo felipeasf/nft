@@ -1,5 +1,8 @@
 /**
 *  @file nft.cpp
+*
+* ToDo: issue, burn or remove multiple tokens at once.
+*       duplicated schemas will be allowed?
 */
 
 #include "example/nft.hpp"
@@ -223,7 +226,6 @@ void example::nft::removecstprm(uint64_t id) {
     custom_table.erase( rmv_cst_prm );
 }
 
-//ToDo: Duplicated schemas will be allowed?
 void example::nft::createschema(std::string definition) {
     require_auth(_self); 
 

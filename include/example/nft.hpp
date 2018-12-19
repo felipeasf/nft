@@ -24,9 +24,9 @@ namespace example {
              * @brief At issue time, developer could update/change object parameter,
              * this  will affect only all future tokens, doesn’t affect 
              * previously minted tokens.
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @param issuer - 
+             * @param sym - 
+             * @param class_id - 
              */
             ACTION create(name issuer, symbol sym, uint64_t class_id);
 
@@ -34,9 +34,7 @@ namespace example {
              * @brief At issue time, developer could update/change object parameter,
              * this  will affect only all future tokens, doesn’t affect 
              * previously minted tokens.
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @param sym - 
              */
             ACTION remove(symbol sym);
             
@@ -44,45 +42,41 @@ namespace example {
              * @brief At issue time, developer could update/change object parameter,
              * this  will affect only all future tokens, doesn’t affect 
              * previously minted tokens.
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @param to - 
+             * @param sym - 
+             * @param spawn_id - 
+             * @param cust_id - 
              */
             ACTION issue(name to, symbol sym, uint64_t spawn_id, uint64_t cust_id); 
 
             /**
-             * @brief At issue time, developer could update/change object parameter,
-             * this  will affect only all future tokens, doesn’t affect 
-             * previously minted tokens.
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @brief erase a token from state data.
+             * @param sym - 
+             * @param tk_id - 
              */
             ACTION burn(symbol sym, uint64_t tk_id);
 
             /**
-             * @brief At issue time, developer could update/change object parameter,
-             * this  will affect only all future tokens, doesn’t affect 
-             * previously minted tokens.
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @brief Transfer token to other users.
+             * @param from - 
+             * @param to - 
+             * @param sym - 
+             * @param tk_id - 
+             * @param memo - 
              */
             ACTION transfer(name from, name to, symbol sym, uint64_t tk_id, std::string memo);
 
             /** 
              * @brief create class parameters
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @param schema_id - 
+             * @param data_hash - 
+             * @param data - 
              */
             ACTION createclsprm(uint64_t schema_id, uint128_t data_hash, std::vector<uint8_t> data);
 
             /** 
              * @brief remove class parameters
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @param id - 
              */
             ACTION removeclsprm(uint64_t id);
 
@@ -90,57 +84,49 @@ namespace example {
              * @brief update class parameters - A modification on the class parameter will reflect
              * on all instances of the token class in the ecosystem,
              * including existing ones and ones to be minted.
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @param id - 
+             * @param data_hash - 
+             * @param data - 
              */
             ACTION updateclsprm(uint64_t id, uint128_t data_hash, std::vector<uint8_t> data);
 
             /** 
              * @brief create spawn parameters
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @param schema_id - 
+             * @param data_hash - 
+             * @param data - 
              */
             ACTION createspwprm(uint64_t schema_id, uint128_t data_hash, std::vector<uint8_t> data);
 
             /** 
              * @brief remove spawn parameters
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @param id - 
              */
             ACTION removespwprm(uint64_t id);
 
             /** 
              * @brief create custom parameters
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @param schema_id - 
+             * @param data_hash - 
+             * @param data - 
              */
             ACTION createcstprm(uint64_t schema_id, uint128_t data_hash, std::vector<uint8_t> data);
 
             /** 
              * @brief remove custom parameters
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @param id - 
              */
             ACTION removecstprm(uint64_t id);
 
             /** 
              * @brief create data schema
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @param definition - 
              */
             ACTION createschema(std::string definition);
 
             /** 
              * @brief remove data schema
-             * @param ??? - 
-             * @param ??? - 
-             * @param ??? - 
+             * @param id - 
              */
             ACTION removeschema(uint64_t id);
 
