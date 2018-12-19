@@ -6,7 +6,7 @@
 
 void example::game::transfer(name from, name to, symbol sym, uint64_t tk_id, std::string memo) {
     // TODO: Find a better way to pass nft contract name
-    token_table token_table(name("example.nft"), name("example.nft").value);
+    nft::token_table token_table(name("example.nft"), name("example.nft").value);
     auto token = token_table.find(tk_id);
     eosio_assert(token != token_table.end(), "token with id does not exist");
 
