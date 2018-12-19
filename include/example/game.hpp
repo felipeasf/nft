@@ -28,5 +28,12 @@ namespace example {
              * @param memo - Transfer memo.
              */
             ACTION transfer(name from, name to, symbol sym, uint64_t tk_id, std::string memo);
+
+            /**
+             * @brief Burn an existing token.
+             * @param sym - NFT symbol.
+             * @param tk_id - ID of token.
+             */
+            ACTION burn(symbol sym, uint64_t tk_id);
    };
 } //example namespace

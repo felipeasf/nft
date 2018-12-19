@@ -16,14 +16,14 @@ void example::nft::create(name issuer, symbol sym, uint64_t class_id) {
     eosio_assert(sym.precision() == 0, "symbol precision must be 0");
 
     token_data_table td_table(_self, _self.value);
-    auto token_stat = td_table.find(sym.code().raw());
-    eosio_assert(token_stat == td_table.end(), "token with symbol already exists");
+    auto token_data = td_table.find(sym.code().raw());
+    eosio_assert(token_data == td_table.end(), "token with symbol already exists");
 
-    td_table.emplace(_self, [&](auto& ts) {
-       ts.data.symbol = sym;
-       ts.data.amount = 0;
-       ts.issuer = issuer;
-       ts.class_id = class_id;
+    td_table.emplace(_self, [&](auto& td) {
+       td.data.symbol = sym;
+       td.data.amount = 0;
+       td.issuer = issuer;
+       td.class_id = class_id;
     });
 }
 
@@ -33,12 +33,12 @@ void example::nft::remove(symbol sym) {
     eosio_assert(sym.is_valid(), "invalid symbol");
 
     token_data_table td_table(_self, _self.value);
-    auto token_stat = td_table.find(sym.code().raw());
-    eosio_assert(token_stat != td_table.end(), "token with symbol doesn't exist");
+    auto token_data = td_table.find(sym.code().raw());
+    eosio_assert(token_data != td_table.end(), "token with symbol doesn't exist");
 
-    eosio_assert(token_stat->data.amount == 0, "burn all tokens before removing");
+    eosio_assert(token_data->data.amount == 0, "burn all tokens before removing");
 
-    td_table.erase(token_stat);
+    td_table.erase(token_data);
 }
 
 void example::nft::issue(name to, symbol sym, uint64_t spawn_id, uint64_t cust_id) {
@@ -64,8 +64,8 @@ void example::nft::issue(name to, symbol sym, uint64_t spawn_id, uint64_t cust_i
 void example::nft::burn(symbol sym, uint64_t tk_id) {
     token_data_table td_table(_self, _self.value);
 
-    auto token_stat = td_table.find(sym.code().raw());
-    eosio_assert(token_stat != td_table.end(), "token with symbol does not exist");
+    auto token_data = td_table.find(sym.code().raw());
+    eosio_assert(token_data != td_table.end(), "token with symbol does not exist");
 
     token_table token_table(_self, _self.value);
 
@@ -74,14 +74,23 @@ void example::nft::burn(symbol sym, uint64_t tk_id) {
 
     require_auth(token->owner);
 
-    td_table.modify(token_stat, _self, [&](auto& ts) {
-        ts.data.amount--;
+    // TODO: Check if token_data->issuer has a contract deployed
+    eosio_assert(is_account(token_data->issuer), "contract account does not exist");
+
+    // Inline action to Token Issuer's contract
+    action(permission_level{_self, name("active")}, token_data->issuer, name("burn"),
+        std::make_tuple(sym, tk_id)).send();
+
+    td_table.modify(token_data, _self, [&](auto& td) {
+        td.data.amount--;
     });
 
     token_table.erase(token);
 }
 
 void example::nft::transfer(name from, name to, symbol sym, uint64_t tk_id, std::string memo) {
+    require_auth(from);
+
     eosio_assert(from != to, "cannot transfer to self");
 
     eosio_assert(is_account(to), "to account does not exist");
@@ -92,15 +101,19 @@ void example::nft::transfer(name from, name to, symbol sym, uint64_t tk_id, std:
     auto token_data = td_table.find(sym.code().raw());
     eosio_assert(token_data != td_table.end(), "token with symbol doesn't exist");
 
-    // Make sure that transfer can only be called from issuer contract through inline action
-    require_auth(token_data->issuer);
-
     token_table token_table(_self, _self.value);
 
     auto token = token_table.find(tk_id);
     eosio_assert(token != token_table.end(), "token with id does not exist");
 
     eosio_assert(token->owner == from, "sender does not own token with specified id");
+
+    // TODO: Check if token_data->issuer has a contract deployed
+    eosio_assert(is_account(token_data->issuer), "contract account does not exist");
+
+    // Inline action to Token Issuer's contract
+    action(permission_level{_self, name("active")}, token_data->issuer, name("transfer"),
+        std::make_tuple(from, to, sym, tk_id, memo)).send();
 
     token_table.modify(token, _self, [&](auto& token) {
         token.owner = to;
