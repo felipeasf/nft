@@ -137,30 +137,30 @@ namespace example {
         uint64_t id;
         uint64_t schema_id;
         uint128_t data_hash;
-        uint8_t* data;
+        std::vector<uint8_t> data;
  
         uint64_t primary_key() const {return id;}
-        uint128_t data_hash() const {return data_hash;}
+        uint128_t get_dhash() const {return data_hash;}
     };
  
     TABLE spawn_param {
         uint64_t id;
         uint64_t schema_id;
         uint128_t data_hash;
-        uint8_t* data;
+        std::vector<uint8_t> data;
  
         uint64_t primary_key() const {return id;}
-        uint128_t data_hash() const {return data_hash;}
+        uint128_t get_dhash() const {return data_hash;}
     };
  
     TABLE cust_param {
         uint64_t id;
         uint64_t schema_id;
         uint128_t data_hash;
-        uint8_t* data;
+        std::vector<uint8_t> data;
  
         uint64_t primary_key() const {return id;}
-        uint128_t data_hash() const {return data_hash;}
+        uint128_t get_dhash() const {return data_hash;}
     };
  
     TABLE schema {
@@ -189,13 +189,13 @@ namespace example {
     };
  
     typedef eosio::multi_index<name("clsparamtbl"), class_param, 
-        indexed_by<name("byhash"), const_mem_fun<class_param, uint128_t, &class_param::data_hash>>>
+        indexed_by<name("byhash"), const_mem_fun<class_param, uint128_t, &class_param::get_dhash>>>
         cls_param_table;
     typedef eosio::multi_index<name("spwparamtbl"), spawn_param, 
-        indexed_by<name("byhash"), const_mem_fun<spawn_param, uint128_t, &spawn_param::data_hash>>>
+        indexed_by<name("byhash"), const_mem_fun<spawn_param, uint128_t, &spawn_param::get_dhash>>>
         spw_param_table;
     typedef eosio::multi_index<name("cstparamtbl"), cust_param,
-        indexed_by<name("byhash"), const_mem_fun<cust_param, uint128_t, &cust_param::data_hash>>>
+        indexed_by<name("byhash"), const_mem_fun<cust_param, uint128_t, &cust_param::get_dhash>>>
         cst_param_table;
     typedef eosio::multi_index<name("schematable"), schema> schema_table;
     typedef eosio::multi_index<name("tdatatable"), token_data> token_data_table;

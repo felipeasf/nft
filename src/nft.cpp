@@ -133,7 +133,8 @@ void example::nft::mint(uint64_t spawn_id, uint64_t cust_id, name owner) {
     });
 }
 
-void example::nft::createclsprm(uint64_t schema_id, uint128_t data_hash, std::vector<uint8_t> data) {
+void example::nft::createclsprm(uint64_t schema_id, uint128_t data_hash,
+    std::vector<uint8_t> data) {
     require_auth(_self);
 
     cls_param_table class_table(_self, _self.value);
@@ -148,9 +149,7 @@ void example::nft::createclsprm(uint64_t schema_id, uint128_t data_hash, std::ve
        for (int i = 0; i < data.size(); ++i) {
             cls.data.push_back(data[i]);
         }
-
     });
-
 }
 
 void example::nft::removeclsprm(uint64_t id) {
@@ -161,7 +160,6 @@ void example::nft::removeclsprm(uint64_t id) {
     eosio_assert( rmv_cls_prm != class_table.end(), "class parameter with id does not exist" );
 
     class_table.erase( rmv_cls_prm );
-
 }
 
 void example::nft::updateclsprm(uint64_t id, uint128_t data_hash, std::vector<uint8_t> data) {
@@ -177,11 +175,11 @@ void example::nft::updateclsprm(uint64_t id, uint128_t data_hash, std::vector<ui
        for (int i = 0; i < data.size(); ++i) {
             cls.data.push_back(data[i]);
         }
-
     });
 }
 
-void example::nft::createspwprm(uint64_t schema_id, uint128_t data_hash, std::vector<uint8_t> data) {
+void example::nft::createspwprm(uint64_t schema_id, uint128_t data_hash,
+    std::vector<uint8_t> data) {
     require_auth(_self); 
 
     spw_param_table spawn_table(_self, _self.value);
@@ -196,7 +194,6 @@ void example::nft::createspwprm(uint64_t schema_id, uint128_t data_hash, std::ve
        for (int i = 0; i < data.size(); ++i) {
             spawn.data.push_back(data[i]);
         }
-
     });
 }
 
@@ -210,7 +207,8 @@ void example::nft::removespwprm(uint64_t id) {
     spawn_table.erase( rmv_spawn_prm );
 }
 
-void example::nft::createcstprm(uint64_t schema_id, uint128_t data_hash, std::vector<uint8_t> data) {
+void example::nft::createcstprm(uint64_t schema_id, uint128_t data_hash,
+    std::vector<uint8_t> data) {
     require_auth(_self); 
 
     cst_param_table custom_table(_self, _self.value);
@@ -225,7 +223,6 @@ void example::nft::createcstprm(uint64_t schema_id, uint128_t data_hash, std::ve
        for (int i = 0; i < data.size(); ++i) {
             cst.data.push_back(data[i]);
         }
-
     });
 }
 
@@ -247,7 +244,6 @@ void example::nft::createschema(std::string definition) {
     schema_table.emplace(_self, [&](auto& schema) {
        schema.id = schema_table.available_primary_key();
        schema.definition = definition;
-
     });
 }
 
@@ -258,7 +254,7 @@ void example::nft::removeschema(uint64_t id) {
     auto rmv_schema = schema_table.find( id );
     eosio_assert( rmv_schema != schema_table.end(), "schema with id does not exist" );
 
-    schema_table.erase( rmv_schema );
+    schema_table.erase(rmv_schema);
 }
 
 EOSIO_DISPATCH(example::nft, (create)(remove)(issue)(burn)(transfer)(createclsprm)(removeclsprm)
