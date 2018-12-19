@@ -2,7 +2,7 @@
 *  @file nft.cpp
 *
 * ToDo: issue, burn or remove multiple tokens at once.
-*       duplicated schemas will be allowed?
+*       avoid duplicated schemas
 */
 
 #include "example/nft.hpp"

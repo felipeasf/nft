@@ -4,6 +4,9 @@
 
 #include <eosiolib/eosio.hpp>
 #include <eosiolib/asset.hpp>
+// #include "flatbuffers/flatbuffers.h"
+// #include "flatbuffers/idl.h"
+// #include "flatbuffers/util.h"
 
 using namespace eosio;
 
