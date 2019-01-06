@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="nft"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\usr\local\lib\cmake\eosio.cdt\;CMake Files\..\..\..\..\\;CMake Files\..\..\..\..\\usr\;CMake Files\..\..\..\..\\usr\local\;CMake Files\..\..\..\..\\usr\local\opt\;CMake Files\..\..\..\..\\usr\local\opt\eosio.cdt\;CMake Files\..\..\..\..\\usr\local\opt\eosio.cdt\lib\;CMake Files\..\..\..\..\\usr\local\opt\eosio.cdt\lib\cmake\;CMake Files\..\..\..\..\\usr\local\opt\eosio.cdt\lib\cmake\eosio.cdt\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Volumes/sd/workspace/nft/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Volumes/sd/workspace/nft/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Volumes/sd/workspace/nft/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="game.wasm">
+				<Option output="/Volumes/sd/workspace/nft/cmake-build-debug/game.wasm" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Volumes/sd/workspace/nft/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="//usr/local/eosio.cdt/include/libcxx"/>
+					<Add directory="//usr/local/eosio.cdt/include/libc"/>
+					<Add directory="//usr/local/eosio.cdt/include"/>
+					<Add directory="/Users/felipefaria/Documents/eos/ultra/flatbuffers/include"/>
+					<Add directory="/Volumes/sd/workspace/nft/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 game.wasm"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="game.wasm/fast">
+				<Option output="/Volumes/sd/workspace/nft/cmake-build-debug/game.wasm" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Volumes/sd/workspace/nft/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="//usr/local/eosio.cdt/include/libcxx"/>
+					<Add directory="//usr/local/eosio.cdt/include/libc"/>
+					<Add directory="//usr/local/eosio.cdt/include"/>
+					<Add directory="/Users/felipefaria/Documents/eos/ultra/flatbuffers/include"/>
+					<Add directory="/Volumes/sd/workspace/nft/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 game.wasm/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nft.wasm">
+				<Option output="/Volumes/sd/workspace/nft/cmake-build-debug/nft.wasm" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Volumes/sd/workspace/nft/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="//usr/local/eosio.cdt/include/libcxx"/>
+					<Add directory="//usr/local/eosio.cdt/include/libc"/>
+					<Add directory="//usr/local/eosio.cdt/include"/>
+					<Add directory="/Users/felipefaria/Documents/eos/ultra/flatbuffers/include"/>
+					<Add directory="/Volumes/sd/workspace/nft/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 nft.wasm"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nft.wasm/fast">
+				<Option output="/Volumes/sd/workspace/nft/cmake-build-debug/nft.wasm" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Volumes/sd/workspace/nft/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="//usr/local/eosio.cdt/include/libcxx"/>
+					<Add directory="//usr/local/eosio.cdt/include/libc"/>
+					<Add directory="//usr/local/eosio.cdt/include"/>
+					<Add directory="/Users/felipefaria/Documents/eos/ultra/flatbuffers/include"/>
+					<Add directory="/Volumes/sd/workspace/nft/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 nft.wasm/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Volumes/sd/workspace/nft/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Volumes/sd/workspace/nft/src/game.cpp">
+			<Option target="game.wasm"/>
+		</Unit>
+		<Unit filename="/Volumes/sd/workspace/nft/src/nft.cpp">
+			<Option target="nft.wasm"/>
+		</Unit>
+		<Unit filename="/Volumes/sd/workspace/nft/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Volumes/sd/workspace/nft/../../../../usr/local/lib/cmake/eosio.cdt/eosio.cdt-config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\eosio.cdt\"/>
+		</Unit>
+		<Unit filename="/Volumes/sd/workspace/nft/../../../..//usr/local/opt/eosio.cdt/lib/cmake/eosio.cdt/EosioWasmToolchain.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\\usr\local\opt\eosio.cdt\lib\cmake\eosio.cdt\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

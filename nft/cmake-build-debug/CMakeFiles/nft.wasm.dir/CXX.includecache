@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/example/nft.hpp
+eosiolib/eosio.hpp
+-
+eosiolib/asset.hpp
+-
+
+/Volumes/sd/workspace/nft/src/nft.cpp
+example/nft.hpp
+/Volumes/sd/workspace/nft/src/example/nft.hpp
+

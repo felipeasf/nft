@@ -1,0 +1,83 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Volumes/sd/workspace/nft
+-- The C compiler identification is AppleClang 10.0.0.10001044
+-- The CXX compiler identification is AppleClang 10.0.0.10001044
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/c++
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Setting up Eosio Wasm Toolchain 1.4.1 at //usr/local
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Volumes/sd/workspace/nft/cmake-build-debug
+
+Cannot get compiler information:
+	Compiler exited with error code 255: /usr/local/bin/eosio-cpp -xc++ -I//usr/local/eosio.cdt/include/libcxx -I//usr/local/eosio.cdt/include/libc -I//usr/local/eosio.cdt/include -I/Users/felipefaria/Documents/eos/ultra/flatbuffers/include -I/Volumes/sd/workspace/nft/include -O3 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -abigen -abigen_output=/Volumes/sd/workspace/nft/cmake-build-debug/game.abi -contract game -fpch-preprocess -v -dD -E
+	clang version 7.0.0 (https://github.com/eosio/clang.git 3e38ccb3dacee8c53ed6d3d5a59d1f6d4f0c96cf) (https://github.com/eosio/llvm 9d682f7ebbdc50c2ad620f46d04d2aa94523f8f3)
+	Target: wasm32
+	Thread model: single
+	InstalledDir: /usr/local/Cellar/eosio.cdt/1.4.1/opt/eosio.cdt/bin
+	clang-7: warning: /private/var/folders/tw/b59p84l13hn9bk_xbjh6lqrm0000gn/T/compiler-file2225245732086152576: 'linker' input unused [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-ffreestanding' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-fno-builtin' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-fno-threadsafe-statics' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-fno-exceptions' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-D BOOST_DISABLE_ASSERTS' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-D BOOST_EXCEPTION_DISABLE' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-Xclang -load' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-Xclang /usr/local/Cellar/eosio.cdt/1.4.1/opt/eosio.cdt/bin/LLVMEosioApply.dylib' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-fplugin=/usr/local/Cellar/eosio.cdt/1.4.1/opt/eosio.cdt/bin/eosio_plugin.dylib' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-mllvm -use-cfl-aa-in-codegen=both' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-I /usr/local/Cellar/eosio.cdt/1.4.1/opt/eosio.cdt/bin/../include/libcxx' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-I /usr/local/Cellar/eosio.cdt/1.4.1/opt/eosio.cdt/bin/../include/libc' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-I /usr/local/Cellar/eosio.cdt/1.4.1/opt/eosio.cdt/bin/../include' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-c' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-dD' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-D ___CIDR_DEFINITIONS_END' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-I //usr/local/eosio.cdt/include/libcxx' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-I //usr/local/eosio.cdt/include/libc' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-I //usr/local/eosio.cdt/include' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-I /Users/felipefaria/Documents/eos/ultra/flatbuffers/include' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-I /Volumes/sd/workspace/nft/include' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-O3' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '--std=c++17' [-Wunused-command-line-argument]
+	
+	
+	Compiler exited with error code 255: /usr/local/bin/eosio-cpp -xc++ -I//usr/local/eosio.cdt/include/libcxx -I//usr/local/eosio.cdt/include/libc -I//usr/local/eosio.cdt/include -I/Users/felipefaria/Documents/eos/ultra/flatbuffers/include -I/Volumes/sd/workspace/nft/include -O3 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -abigen -abigen_output=/Volumes/sd/workspace/nft/cmake-build-debug/nft.abi -contract nft -fpch-preprocess -v -dD -E
+	clang version 7.0.0 (https://github.com/eosio/clang.git 3e38ccb3dacee8c53ed6d3d5a59d1f6d4f0c96cf) (https://github.com/eosio/llvm 9d682f7ebbdc50c2ad620f46d04d2aa94523f8f3)
+	Target: wasm32
+	Thread model: single
+	InstalledDir: /usr/local/Cellar/eosio.cdt/1.4.1/opt/eosio.cdt/bin
+	clang-7: warning: /private/var/folders/tw/b59p84l13hn9bk_xbjh6lqrm0000gn/T/compiler-file3594708144675190329: 'linker' input unused [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-ffreestanding' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-fno-builtin' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-fno-threadsafe-statics' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-fno-exceptions' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-D BOOST_DISABLE_ASSERTS' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-D BOOST_EXCEPTION_DISABLE' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-Xclang -load' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-Xclang /usr/local/Cellar/eosio.cdt/1.4.1/opt/eosio.cdt/bin/LLVMEosioApply.dylib' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-fplugin=/usr/local/Cellar/eosio.cdt/1.4.1/opt/eosio.cdt/bin/eosio_plugin.dylib' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-mllvm -use-cfl-aa-in-codegen=both' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-I /usr/local/Cellar/eosio.cdt/1.4.1/opt/eosio.cdt/bin/../include/libcxx' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-I /usr/local/Cellar/eosio.cdt/1.4.1/opt/eosio.cdt/bin/../include/libc' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-I /usr/local/Cellar/eosio.cdt/1.4.1/opt/eosio.cdt/bin/../include' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-c' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-dD' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-D ___CIDR_DEFINITIONS_END' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-I //usr/local/eosio.cdt/include/libcxx' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-I //usr/local/eosio.cdt/include/libc' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-I //usr/local/eosio.cdt/include' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-I /Users/felipefaria/Documents/eos/ultra/flatbuffers/include' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-I /Volumes/sd/workspace/nft/include' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '-O3' [-Wunused-command-line-argument]
+	clang-7: warning: argument unused during compilation: '--std=c++17' [-Wunused-command-line-argument]
+	
+	

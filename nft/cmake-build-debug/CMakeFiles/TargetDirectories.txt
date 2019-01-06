@@ -1,0 +1,4 @@
+/Volumes/sd/workspace/nft/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Volumes/sd/workspace/nft/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Volumes/sd/workspace/nft/cmake-build-debug/CMakeFiles/game.wasm.dir
+/Volumes/sd/workspace/nft/cmake-build-debug/CMakeFiles/nft.wasm.dir

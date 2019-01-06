@@ -1,0 +1,1 @@
+//usr/local/bin/eosio-ld  CMakeFiles/game.wasm.dir/src/game.cpp.o -o game.wasm 
