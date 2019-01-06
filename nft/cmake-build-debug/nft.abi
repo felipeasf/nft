@@ -1,0 +1,295 @@
+{
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Wed Dec 26 00:22:04 2018",
+    "version": "eosio::abi/1.1",
+    "structs": [
+        {
+            "name": "burn",
+            "base": "",
+            "fields": [
+                {
+                    "name": "sym",
+                    "type": "symbol"
+                },
+                {
+                    "name": "tk_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "create",
+            "base": "",
+            "fields": [
+                {
+                    "name": "issuer",
+                    "type": "name"
+                },
+                {
+                    "name": "sym",
+                    "type": "symbol"
+                },
+                {
+                    "name": "class_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "createclsprm",
+            "base": "",
+            "fields": [
+                {
+                    "name": "schema_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "data_hash",
+                    "type": "uint128"
+                },
+                {
+                    "name": "data",
+                    "type": "uint8[]"
+                }
+            ]
+        },
+        {
+            "name": "createcstprm",
+            "base": "",
+            "fields": [
+                {
+                    "name": "schema_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "data_hash",
+                    "type": "uint128"
+                },
+                {
+                    "name": "data",
+                    "type": "uint8[]"
+                }
+            ]
+        },
+        {
+            "name": "createschema",
+            "base": "",
+            "fields": [
+                {
+                    "name": "definition",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "createspwprm",
+            "base": "",
+            "fields": [
+                {
+                    "name": "schema_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "data_hash",
+                    "type": "uint128"
+                },
+                {
+                    "name": "data",
+                    "type": "uint8[]"
+                }
+            ]
+        },
+        {
+            "name": "issue",
+            "base": "",
+            "fields": [
+                {
+                    "name": "to",
+                    "type": "name"
+                },
+                {
+                    "name": "sym",
+                    "type": "symbol"
+                },
+                {
+                    "name": "spawn_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "cust_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "remove",
+            "base": "",
+            "fields": [
+                {
+                    "name": "sym",
+                    "type": "symbol"
+                }
+            ]
+        },
+        {
+            "name": "removeclsprm",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "removecstprm",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "removeschema",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "removespwprm",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "transfer",
+            "base": "",
+            "fields": [
+                {
+                    "name": "from",
+                    "type": "name"
+                },
+                {
+                    "name": "to",
+                    "type": "name"
+                },
+                {
+                    "name": "sym",
+                    "type": "symbol"
+                },
+                {
+                    "name": "tk_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "updateclsprm",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "data_hash",
+                    "type": "uint128"
+                },
+                {
+                    "name": "data",
+                    "type": "uint8[]"
+                }
+            ]
+        }
+    ],
+    "types": [],
+    "actions": [
+        {
+            "name": "burn",
+            "type": "burn",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "create",
+            "type": "create",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "createclsprm",
+            "type": "createclsprm",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "createcstprm",
+            "type": "createcstprm",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "createschema",
+            "type": "createschema",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "createspwprm",
+            "type": "createspwprm",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "issue",
+            "type": "issue",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "remove",
+            "type": "remove",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "removeclsprm",
+            "type": "removeclsprm",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "removecstprm",
+            "type": "removecstprm",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "removeschema",
+            "type": "removeschema",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "removespwprm",
+            "type": "removespwprm",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "transfer",
+            "type": "transfer",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "updateclsprm",
+            "type": "updateclsprm",
+            "ricardian_contract": ""
+        }
+    ],
+    "tables": [],
+    "ricardian_clauses": [],
+    "variants": [],
+    "abi_extensions": []
+}
